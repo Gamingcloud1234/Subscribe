@@ -5,7 +5,7 @@ from PIL import Image
 import io
 
 # --- 1. PREMIUM WHITE THEME ---
-st.set_page_config(page_title="TahaGpt Pro", page_icon="🚀", layout="wide")
+st.set_page_config(page_title="White BOX AI", page_icon="🚀", layout="wide")
 
 st.markdown("""
     <style>
@@ -30,7 +30,7 @@ st.markdown("""
 
 # --- 2. SESSION STATE (AUTH & DATA) ---
 if "users" not in st.session_state:
-    st.session_state.users = {"admin": "taha123"}  # Default admin account
+    st.session_state.users = {"Subscribe": "Like"}  # Default admin account
 if "logged_in" not in st.session_state:
     st.session_state.logged_in = False
 if "current_user" not in st.session_state:
@@ -85,11 +85,11 @@ else:
         st.stop()
 
     client = genai.Client(api_key=st.secrets["GEMINI_API_KEY"])
-    TAHA_IDENTITY = f"Your name is TahaGpt. Created by M. Taha Farooq for {st.session_state.current_user}."
+    TAHA_IDENTITY = f"Your name is White Box AI. Created by Subscribe for {st.session_state.current_user}."
 
     # --- SIDEBAR UI ---
     with st.sidebar:
-        MY_PIC_URL = "https://raw.githubusercontent.com/Gamingcloud1234/TahaGpt/main/Taha.jpeg"
+        MY_PIC_URL = ""
         try:
             st.image(MY_PIC_URL, width=100)
         except:
@@ -118,13 +118,13 @@ else:
             with st.expander("💎 Become a Pro"):
                 promo = st.text_input("Promo Code", key="promo_input")
                 if st.button("Activate Code", use_container_width=True):
-                    if promo == "TAHA2026":
+                    if promo == "Like":
                         st.session_state.is_pro = True
                         st.rerun()
                     else:
                         st.error("Invalid Code")
                 st.write("--- OR ---")
-                st.button("💳 Buy for 100 PKR", use_container_width=True)
+                st.button("💳 Buy for 50-0 PKR", use_container_width=True)
         else:
             st.markdown("<p class='pro-item-text'>💎 Pro Items</p>", unsafe_allow_html=True)
             if st.button("📄 Create a PDF", use_container_width=True):
